@@ -4,13 +4,3 @@
 *.jar
 *.war
 *.ear
-
-#Eclipse#
-.classpath
-.project
-
-#Testing#
-tester/
-
-#javadoc#
-doc/
