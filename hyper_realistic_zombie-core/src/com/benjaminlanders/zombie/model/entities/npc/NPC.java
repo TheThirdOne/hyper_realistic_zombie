@@ -1,4 +1,4 @@
-package com.benjaminlanders.zombie.model.npc;
+package com.benjaminlanders.zombie.model.entities.npc;
 /**
  * 
  * @author Benjamin Landers
