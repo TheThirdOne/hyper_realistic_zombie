@@ -1,4 +1,4 @@
-package com.benjaminlanders.zombie.world;
+package com.benjaminlanders.zombie.model.world;
 /**
  * 
  * @author Benjamin Landers

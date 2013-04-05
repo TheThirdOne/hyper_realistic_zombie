@@ -1,4 +1,4 @@
-package com.benjaminlanders.zombie.player;
+package com.benjaminlanders.zombie.model.player;
 /**
  * 
  * @author Benjamin Landers
