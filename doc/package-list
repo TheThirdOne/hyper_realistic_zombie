@@ -1,7 +1,9 @@
 com.benjaminlanders.zombie
 com.benjaminlanders.zombie.controller
 com.benjaminlanders.zombie.model
+com.benjaminlanders.zombie.model.entities
+com.benjaminlanders.zombie.model.entities.npc
+com.benjaminlanders.zombie.model.entities.player
 com.benjaminlanders.zombie.model.items
-com.benjaminlanders.zombie.model.npc
-com.benjaminlanders.zombie.model.player
 com.benjaminlanders.zombie.model.world
+com.benjaminlanders.zombie.view
