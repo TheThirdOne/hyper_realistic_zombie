@@ -6,8 +6,8 @@ import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.benjaminlanders.zombie.helper.Assets;
 import com.benjaminlanders.zombie.helper.Graphics;
-import com.benjaminlanders.zombie.helper.Loader;
 
 public class MainGame implements ApplicationListener 
 {
@@ -15,14 +15,18 @@ public class MainGame implements ApplicationListener
 	Animation legs,arms;
 	float stateTime;
 	TextureRegion currentFrame;
+	public MainGame()
+	{
+	
+	}
 	
 	@Override
 	public void create() {		
 		
 		batch = new SpriteBatch();
 		
-		legs = Loader.loadAnimation("animations/legs.png", 2, 2, .5f);
-		arms = Loader.loadAnimation("animations/arms.png", 2, 1, .2f);
+		legs = Assets.getAnimation(Assets.legs);
+		arms = Assets.getAnimation(Assets.arms);
         stateTime = 0f;           
 	}
 
