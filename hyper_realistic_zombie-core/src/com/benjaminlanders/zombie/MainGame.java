@@ -17,9 +17,7 @@ public class MainGame implements ApplicationListener
 {
 	private Renderer renderer;
 	private SpriteBatch batch;
-	Animation legs,arms;
 	float stateTime;
-	TextureRegion currentFrame;
 	public MainGame()
 	{
 	
@@ -31,8 +29,8 @@ public class MainGame implements ApplicationListener
 		
 		batch = new SpriteBatch();
 		renderer = new SplashScreen(batch,this,new Texture(Gdx.files.internal("data/libgdx.png")));
-		legs = Assets.getAnimation(Assets.legs);
-		arms = Assets.getAnimation(Assets.ball);
+		Assets.getAnimation(Assets.legs);
+		Assets.getAnimation(Assets.arms);
         stateTime = 0f;           
 	}
 
@@ -48,17 +46,11 @@ public class MainGame implements ApplicationListener
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
         stateTime += Gdx.graphics.getDeltaTime();                      
-        currentFrame = legs.getKeyFrame(stateTime, true); 
-        if(((SplashScreen) renderer).isFinsished())
+        if(renderer.isFinished())
         {
         	renderer = new MainRenderer(batch,this);
         }
         renderer.render(Gdx.graphics.getDeltaTime());
-       /* batch.begin();
-        Graphics.draw(batch,currentFrame,100,100,133,127,.5f,0);
-        currentFrame = arms.getKeyFrame(stateTime, true);  
-        Graphics.draw(batch,currentFrame,100,100,133,127,.5f,0);
-        batch.end();*/
 	}
 
 	@Override

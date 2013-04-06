@@ -22,4 +22,6 @@ public abstract class Renderer
 		this.reference = reference;
 	}
 	public abstract void render(float delta);
+	
+	public abstract boolean isFinished();
 }

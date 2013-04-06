@@ -26,9 +26,10 @@ public class SplashScreen extends Renderer
 		batch.draw(splash, 0,0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		batch.end();
 	}
-	public boolean isFinsished()
+	public boolean isFinished()
 	{
 		return timeElapsed > END_TIME;
 	}
+
 
 }
