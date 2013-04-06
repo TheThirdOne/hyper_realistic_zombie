@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.benjaminlanders.zombie.helper.Graphics;
 import com.benjaminlanders.zombie.helper.Loader;
 
 public class MainGame implements ApplicationListener 
@@ -40,8 +41,7 @@ public class MainGame implements ApplicationListener
         stateTime += Gdx.graphics.getDeltaTime();                      
         currentFrame = animation.getKeyFrame(stateTime, true);      
         batch.begin();
-        batch.draw(currentFrame, 50, 50);
-        batch.draw(currentFrame, 50, 50,32,32, 64, 64, 4, 4, 45);
+        Graphics.draw(batch,currentFrame,50,50,133,127,.5f,360*stateTime);
         batch.end();
 	}
 
