@@ -1,5 +1,6 @@
 com.benjaminlanders.zombie
 com.benjaminlanders.zombie.controller
+com.benjaminlanders.zombie.helper
 com.benjaminlanders.zombie.model
 com.benjaminlanders.zombie.model.entities
 com.benjaminlanders.zombie.model.entities.npc
