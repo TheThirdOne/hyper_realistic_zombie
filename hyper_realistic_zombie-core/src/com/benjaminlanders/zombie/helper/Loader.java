@@ -48,8 +48,10 @@ public class Loader
 		TextureRegion[][] temp = TextureRegion.split(texture,texture.getWidth()/columns, texture.getHeight()/rows);
 		TextureRegion[] frames = new TextureRegion[columns*rows];
 		int index = 0;
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < columns; j++) 
+            {
                     frames[index++] = temp[i][j];
             }
         }

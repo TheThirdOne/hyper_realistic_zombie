@@ -21,5 +21,5 @@ public abstract class Renderer
 		this.batch = batch;
 		this.reference = reference;
 	}
-	public abstract void render();
+	public abstract void render(float delta);
 }
