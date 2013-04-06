@@ -11,6 +11,9 @@
 
 #Testing#
 tester/
+#build stuff#
+buildjar.xml
+jar-in-jar-loader.zip
 
 #javadoc#
 doc/
