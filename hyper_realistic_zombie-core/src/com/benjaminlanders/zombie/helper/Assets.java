@@ -1,8 +1,5 @@
 package com.benjaminlanders.zombie.helper;
 
-import java.io.InputStream;
-
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.benjaminlanders.zombie.MainGame;
 
@@ -24,16 +21,7 @@ public class Assets
 			return null;
 		if(animations[reference]==null)
 		{
-			String text = Gdx.app.getFiles().internal("animations/"+animationAddress[reference]+".txt").readString();
-			String[] split = text.split(",");
-			int[] values = new int[split.length];
-			for(int i = 0; i< split.length;i++)
-			{
-				
-				values[i] = Integer.parseInt(split[i]);
-			}
-			animations[reference] = Loader.loadAnimation("animations/"+animationAddress[reference]+".png",
-					values[0],values[1], .01f*values[2]);
+			animations[reference] = Loader.loadAnimation(animationAddress[reference]);
 		}
 		return animations[reference];
 	}
