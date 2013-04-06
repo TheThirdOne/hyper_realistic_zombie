@@ -16,7 +16,7 @@ import com.benjaminlanders.zombie.helper.Loader;
 public class MainGame implements ApplicationListener 
 {
 	private SpriteBatch batch;
-	Animation animation;
+	Animation legs,arms;
 	float stateTime;
 	TextureRegion currentFrame;
 	
@@ -25,7 +25,8 @@ public class MainGame implements ApplicationListener
 		
 		batch = new SpriteBatch();
 		
-		animation = Loader.loadAnimation("data/test2.png", 2, 2, .5f);
+		legs = Loader.loadAnimation("animations/legs.png", 2, 2, .5f);
+		arms = Loader.loadAnimation("animations/arms.png", 2, 1, .2f);
         stateTime = 0f;           
 	}
 
@@ -39,9 +40,12 @@ public class MainGame implements ApplicationListener
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
         stateTime += Gdx.graphics.getDeltaTime();                      
-        currentFrame = animation.getKeyFrame(stateTime, true);      
+        currentFrame = legs.getKeyFrame(stateTime, true);  
+        
         batch.begin();
-        Graphics.draw(batch,currentFrame,50,50,133,127,.5f,360*stateTime);
+        Graphics.draw(batch,currentFrame,100,100,133,127,.5f,0);
+        currentFrame = arms.getKeyFrame(stateTime, true);  
+        Graphics.draw(batch,currentFrame,100,100,133,127,.5f,0);
         batch.end();
 	}
 
