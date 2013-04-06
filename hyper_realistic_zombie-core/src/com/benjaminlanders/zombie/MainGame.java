@@ -2,6 +2,7 @@ package com.benjaminlanders.zombie;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -12,9 +13,12 @@ import com.benjaminlanders.zombie.view.SplashScreen;
 
 public class MainGame implements ApplicationListener 
 {
+	private boolean wasPaused= false;
 	private Renderer renderer;
 	private SpriteBatch batch;
 	float stateTime;
+	float threshold=2;
+	Sound gun;
 	public MainGame()
 	{
 	
@@ -28,7 +32,10 @@ public class MainGame implements ApplicationListener
 		renderer = new SplashScreen(batch,this,new Texture(Gdx.files.internal("data/libgdx.png")));
 		Assets.getAnimation(Assets.legs);
 		Assets.getAnimation(Assets.arms);
-        stateTime = 0f;           
+        stateTime = 0f;  
+        gun = Gdx.audio.newSound(Gdx.files.internal("sounds/gunshot1.wav"));
+        gun.play();
+        
 	}
 
 	@Override
@@ -42,12 +49,30 @@ public class MainGame implements ApplicationListener
 	{		
 		Gdx.gl.glClearColor(1, 1, 1, 1);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-        stateTime += Gdx.graphics.getDeltaTime();                      
+		if(!wasPaused)
+		{
+			stateTime += Gdx.graphics.getDeltaTime();
+			wasPaused = false;
+		}
+		if(stateTime > threshold)
+		{
+			gun.play();
+			threshold += 1f;
+		}
         if(renderer.isFinished())
         {
         	renderer = new MainRenderer(batch,this);
         }
-        renderer.render(Gdx.graphics.getDeltaTime());
+		if(wasPaused)
+		{
+			stateTime += Gdx.graphics.getDeltaTime();
+			renderer.render(.01f);
+			wasPaused = false;		
+		}else
+		{
+			renderer.render(Gdx.graphics.getDeltaTime());
+		}
+        
 	}
 
 	@Override
@@ -59,10 +84,12 @@ public class MainGame implements ApplicationListener
 	@Override
 	public void pause()
 	{
+		
 	}
 
 	@Override
 	public void resume()
 	{
+		wasPaused = true;
 	}
 }
