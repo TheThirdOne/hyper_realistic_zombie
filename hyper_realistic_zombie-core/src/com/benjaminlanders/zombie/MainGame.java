@@ -10,41 +10,27 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.benjaminlanders.zombie.helper.Loader;
 
-public class MainGame implements ApplicationListener {
-	private OrthographicCamera camera;
+public class MainGame implements ApplicationListener 
+{
 	private SpriteBatch batch;
-	private Texture texture;
 	Animation animation;
 	float stateTime;
-	TextureRegion[] frames = new TextureRegion[4];
 	TextureRegion currentFrame;
 	
 	@Override
 	public void create() {		
-		float w = Gdx.graphics.getWidth();
-		float h = Gdx.graphics.getHeight();
 		
-		camera = new OrthographicCamera(1, h/w);
 		batch = new SpriteBatch();
 		
-		texture = new Texture(Gdx.files.internal("data/test.png"));
-		texture.setFilter(TextureFilter.Linear, TextureFilter.Linear);
-		TextureRegion[][] temp = TextureRegion.split(texture, 64, 64);
-		int index = 0;
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 2; j++) {
-                    frames[index++] = temp[i][j];
-            }
-        }
-        animation = new Animation(0.25f, frames);             
+		animation = Loader.loadAnimation("data/test2.png", 2, 2, .5f);
         stateTime = 0f;           
 	}
 
 	@Override
 	public void dispose() {
 		batch.dispose();
-		texture.dispose();
 	}
 
 	@Override
