@@ -21,7 +21,15 @@ public abstract class Renderer
 		this.batch = batch;
 		this.reference = reference;
 	}
+	/** 
+	 * all rendering should go in here
+	 * @param delta time elapsed in seconds from last call
+	 */
 	public abstract void render(float delta);
 	
+	/**
+	 * 
+	 * @return if the renderer is done with its job
+	 */
 	public abstract boolean isFinished();
 }
