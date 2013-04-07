@@ -1,7 +1,9 @@
 package com.benjaminlanders.zombie.helper;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.benjaminlanders.zombie.MainGame;
 
 /**
  * Helper for graphics
@@ -20,7 +22,10 @@ public class Graphics
 	 */
 	public static void draw(SpriteBatch batch, TextureRegion region,float x, float y,float scale, float rotation)
 	{
-		batch.draw(region,- region.getRegionWidth()/2 + x, -region.getRegionHeight()/2+y, region.getRegionWidth()/2,region.getRegionHeight()/2, region.getRegionWidth(),  region.getRegionHeight(), scale, scale, rotation);
+		y *= MainGame.height;
+		x *= MainGame.width;
+		batch.draw(region,- region.getRegionWidth()/2 + x, -region.getRegionHeight()/2+y, region.getRegionWidth()/2, region.getRegionHeight()/2,
+				region.getRegionWidth(),  region.getRegionHeight(), scale*MainGame.width*.005f, scale*MainGame.width*.005f, rotation);
 	}
 	/**
 	 * Draws a TextureRegion to a SpriteBatch with separate scaling and rotation

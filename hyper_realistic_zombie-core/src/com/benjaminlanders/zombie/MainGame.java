@@ -14,6 +14,7 @@ import com.benjaminlanders.zombie.view.SplashScreen;
 
 public class MainGame implements ApplicationListener 
 {
+	public static int width,height;
 	private boolean wasPaused= false;
 	private Renderer renderer;
 	private SpriteBatch batch;
@@ -29,7 +30,8 @@ public class MainGame implements ApplicationListener
 	@Override
 	public void create() 
 	{		
-		
+		height = Gdx.graphics.getHeight();
+		width = Gdx.graphics.getWidth();
 		batch = new SpriteBatch();
 		renderer = new SplashScreen(batch,this,new Texture(Gdx.files.internal("data/libgdx.png")));
 		Assets.getAnimation(Assets.legsAnim);

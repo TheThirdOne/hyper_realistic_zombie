@@ -12,10 +12,13 @@ import com.benjaminlanders.zombie.helper.Assets;
 public class Animator
 {
 	private ArrayList<AnimationUnit> units = new ArrayList<AnimationUnit>();
-	private ArrayList<AnimationUnit> trash = new ArrayList<AnimationUnit>();
 	public void addAnimation(AnimationUnit unit)
 	{
 		units.add(unit);
+	}
+	public void removeUnit(AnimationUnit unit)
+	{
+		units.remove(unit);
 	}
 	/**
 	 * 
@@ -23,7 +26,6 @@ public class Animator
 	 */
 	public void render(float stateTime)
 	{
-		trash.clear();
 		if(units.isEmpty())
 			return;
 		for(AnimationUnit unit: units)
@@ -42,10 +44,8 @@ public class Animator
 			}else
 			{
 				unit.frame = Assets.getImage(Assets.nullimage);
-				trash.add(unit);
 			}
 		}
-		units.removeAll(trash);
 	}
 
 
