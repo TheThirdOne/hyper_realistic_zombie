@@ -32,6 +32,7 @@ public class MainGame implements ApplicationListener
 		renderer = new SplashScreen(batch,this,new Texture(Gdx.files.internal("data/libgdx.png")));
 		Assets.getAnimation(Assets.legs);
 		Assets.getAnimation(Assets.arms);
+		Assets.getAnimation(Assets.gun);
         stateTime = 0f;  
         gun = Gdx.audio.newSound(Gdx.files.internal("sounds/gunshot1.wav"));
         gun.play();
@@ -57,7 +58,7 @@ public class MainGame implements ApplicationListener
 		if(stateTime > threshold)
 		{
 			gun.play();
-			threshold += 1f;
+			threshold += 5f;
 		}
         if(renderer.isFinished())
         {

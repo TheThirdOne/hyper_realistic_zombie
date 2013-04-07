@@ -10,11 +10,13 @@ import com.benjaminlanders.zombie.MainGame;
 public class Assets
 {
 	public static MainGame application;
-	private static final String[] animationAddress = {"legs","arms","ball"};
- 	public static Animation[] animations = new Animation[3];
+	private static final String[] animationAddress = {"legs","arms","ball","gun","fire"};
+ 	public static Animation[] animations = new Animation[5];
 	public static final int legs = 0;
 	public static final int arms = 1;
 	public static final int ball = 2;
+	public static final int gun =  3;
+	public static final int fire = 4;
 	/**
 	 * gets the animation if its loaded, if not it loads and then gives it
 	 * @param reference the value in the array for the correct animation. use the constants
