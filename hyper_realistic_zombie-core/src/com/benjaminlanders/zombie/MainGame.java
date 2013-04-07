@@ -20,7 +20,7 @@ public class MainGame implements ApplicationListener
 	private SpriteBatch batch;
 	float stateTime;
 	float threshold=2;
-	Sound gun;
+	public Sound gun;
 	public Animator animator = new Animator();
 	public MainGame()
 	{
@@ -56,11 +56,6 @@ public class MainGame implements ApplicationListener
 		{
 			stateTime += Gdx.graphics.getDeltaTime();
 			wasPaused = false;
-		}
-		if(stateTime > threshold)
-		{
-			gun.play();
-			threshold += 5f;
 		}
         if(renderer.isFinished())
         {

@@ -9,7 +9,7 @@ import com.benjaminlanders.zombie.helper.Graphics;
  */
 public class GraphicEntity
 {
-	AnimationUnit[] units;
+	protected AnimationUnit[] units;
 	public int[] xCenter, yCenter;
 	
 	public GraphicEntity(int size)

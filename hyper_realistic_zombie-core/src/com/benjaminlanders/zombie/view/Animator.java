@@ -1,6 +1,7 @@
 package com.benjaminlanders.zombie.view;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.benjaminlanders.zombie.helper.Assets;
@@ -15,6 +16,12 @@ public class Animator
 	public void addAnimation(AnimationUnit unit)
 	{
 		units.add(unit);
+	}
+	public void addAnimations(AnimationUnit[] units)
+	{
+		for(AnimationUnit unit: units){
+			this.units.add(unit);
+		}
 	}
 	public void removeUnit(AnimationUnit unit)
 	{

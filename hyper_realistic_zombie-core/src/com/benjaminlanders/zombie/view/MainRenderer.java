@@ -18,6 +18,8 @@ public class MainRenderer extends Renderer
 	float stateTime = 0;
 	AnimationUnit[] frameUpdater = new AnimationUnit[6];
 	GraphicEntity entity;
+	GraphicCharacter character;
+	
 	BitmapFont font = new BitmapFont();
 	public MainRenderer(SpriteBatch batch, MainGame reference)
 	{
@@ -29,12 +31,8 @@ public class MainRenderer extends Renderer
 		frameUpdater[4] = new AnimationUnit(0,Animation.REVERSED,Assets.gunAnim,4,5.6f,false);
 		frameUpdater[5] = new AnimationUnit(0,Animation.NORMAL,Assets.armsAnim,5.6f,0,true);
 		entity = new GraphicEntity(frameUpdater);
-		reference.animator.addAnimation(frameUpdater[0]);
-		reference.animator.addAnimation(frameUpdater[1]);
-		reference.animator.addAnimation(frameUpdater[2]);
-		reference.animator.addAnimation(frameUpdater[3]);
-		reference.animator.addAnimation(frameUpdater[4]);
-		reference.animator.addAnimation(frameUpdater[5]);
+		character = new GraphicCharacter(reference.animator, Assets.legsAnim, Assets.armsAnim, Assets.gunAnim, Assets.fireAnim);
+		//reference.animator.addAnimations(frameUpdater);
 	}
 
 	@Override
@@ -43,8 +41,17 @@ public class MainRenderer extends Renderer
         stateTime += delta;                     
         currentFrame = Assets.animations[Assets.legsAnim].getKeyFrame(stateTime, true); 
 		batch.begin();
+		if(Gdx.input.justTouched())
+		{
+			character.fire();
+			Gdx.app.log("count", "gun");
+			reference.gun.play();
+		}
 		reference.animator.render(stateTime);
-		entity.render(batch);
+		character.update(stateTime);
+		character.render(batch);
+		//entity.render(batch);
+		
 		font.draw(batch, "" + Gdx.graphics.getFramesPerSecond(), 400, 300);
         batch.end();
 	}
