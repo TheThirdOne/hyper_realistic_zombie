@@ -1,10 +1,9 @@
-package com.benjaminlanders.zombie.helper;
+package com.benjaminlanders.zombie.view;
 
 import java.util.ArrayList;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.benjaminlanders.zombie.helper.Assets;
 
 /**
  * Helper for animations
@@ -18,7 +17,11 @@ public class Animator
 	{
 		units.add(unit);
 	}
-	public void render(SpriteBatch batch, float stateTime)
+	/**
+	 * 
+	 * @param stateTime
+	 */
+	public void render(float stateTime)
 	{
 		trash.clear();
 		if(units.isEmpty())

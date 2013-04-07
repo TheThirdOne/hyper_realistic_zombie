@@ -25,7 +25,12 @@ public class Assets
 	public static TextureRegion[] images = new TextureRegion[1];
 	public static final int nullimage = 0;
 	
-	public static TextureRegion getTexture(int reference)
+	/**
+	 * gets the image if its loaded, if not it loads and then gives it
+	 * @param reference the value in the array for the correct image. use the constants
+	 * @return the image
+	 */
+	public static TextureRegion getImage(int reference)
 	{
 		if(images.length < reference)
 			return null;

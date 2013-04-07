@@ -4,10 +4,12 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.benjaminlanders.zombie.MainGame;
-import com.benjaminlanders.zombie.helper.AnimationUnit;
 import com.benjaminlanders.zombie.helper.Assets;
 import com.benjaminlanders.zombie.helper.Graphics;
-
+/**
+ * Currently a test bed for graphics
+ * @author Benjamin Landers
+ */
 public class MainRenderer extends Renderer
 {
 	TextureRegion currentFrame;
@@ -35,7 +37,7 @@ public class MainRenderer extends Renderer
         stateTime += delta;                     
         currentFrame = Assets.animations[Assets.legsAnim].getKeyFrame(stateTime, true); 
 		batch.begin();
-		reference.animator.render(batch,stateTime);
+		reference.animator.render(stateTime);
 		Graphics.draw(batch,frameUpdater.frame,100,100,.5f,0);
 		Graphics.draw(batch,frameUpdater2.frame,100,100,.5f,0);
 		Graphics.draw(batch,frameUpdater3.frame,100,100,.5f,0);
