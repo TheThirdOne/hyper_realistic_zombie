@@ -37,11 +37,11 @@ public class Animator
 				Assets.getAnimation(unit.reference).setPlayMode(Animation.NORMAL);
 				}else
 				{
-					unit.frame = Assets.getTexture(Assets.nullimage);
+					unit.frame = Assets.getImage(Assets.nullimage);
 				}
 			}else
 			{
-				unit.frame = Assets.getTexture(Assets.nullimage);
+				unit.frame = Assets.getImage(Assets.nullimage);
 				trash.add(unit);
 			}
 		}

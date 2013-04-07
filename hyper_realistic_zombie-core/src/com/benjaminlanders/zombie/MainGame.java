@@ -36,10 +36,7 @@ public class MainGame implements ApplicationListener
 		Assets.getAnimation(Assets.armsAnim);
 		Assets.getAnimation(Assets.gunAnim);
         stateTime = 0f;  
-        gun = Gdx.audio.newSound(Gdx.files.internal("sounds/gunshot1.wav"));
-        //gun.play();
-        
-        
+        gun = Gdx.audio.newSound(Gdx.files.internal("sounds/gunshot1.wav"));    
 	}
 
 	@Override
