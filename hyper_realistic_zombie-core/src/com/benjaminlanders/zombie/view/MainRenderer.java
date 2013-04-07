@@ -12,13 +12,21 @@ public class MainRenderer extends Renderer
 {
 	TextureRegion currentFrame;
 	float stateTime = 0;
-	AnimationUnit frameUpdater = new AnimationUnit(0,Animation.NORMAL,Assets.fireAnim,0,7,true);
-	AnimationUnit frameUpdater2 = new AnimationUnit(0,Animation.REVERSED,Assets.fireAnim,4,7,true);
+	AnimationUnit frameUpdater = new AnimationUnit(0,Animation.NORMAL,Assets.legsAnim,0,0,true);
+	AnimationUnit frameUpdater2 = new AnimationUnit(0,Animation.NORMAL,Assets.armsAnim,0,3,true);
+	AnimationUnit frameUpdater3 = new AnimationUnit(0,Animation.NORMAL,Assets.gunAnim,3,4f,false);
+	AnimationUnit frameUpdater4 = new AnimationUnit(0,Animation.NORMAL,Assets.fireAnim,3.6f,4,false);
+	AnimationUnit frameUpdater5 = new AnimationUnit(0,Animation.REVERSED,Assets.gunAnim,4,5.6f,false);
+	AnimationUnit frameUpdater6 = new AnimationUnit(0,Animation.NORMAL,Assets.armsAnim,5.6f,0,true);
 	public MainRenderer(SpriteBatch batch, MainGame reference)
 	{
 		super(batch, reference);
 		reference.animator.addAnimation(frameUpdater);
 		reference.animator.addAnimation(frameUpdater2);
+		reference.animator.addAnimation(frameUpdater3);
+		reference.animator.addAnimation(frameUpdater4);
+		reference.animator.addAnimation(frameUpdater5);
+		reference.animator.addAnimation(frameUpdater6);
 	}
 
 	@Override
@@ -28,23 +36,12 @@ public class MainRenderer extends Renderer
         currentFrame = Assets.animations[Assets.legsAnim].getKeyFrame(stateTime, true); 
 		batch.begin();
 		reference.animator.render(batch,stateTime);
-		Graphics.draw(batch,frameUpdater.frame,100,100,133,127,.5f,0);
-		Graphics.draw(batch,frameUpdater2.frame,100,300,133,127,.5f,0);
-       /* Graphics.draw(batch,currentFrame,100,100,133,127,.5f,0);
-        if(stateTime <2.5f)
-        {
-        	currentFrame = Assets.animations[Assets.arms].getKeyFrame(stateTime, true);  
-        }else{
-        currentFrame = Assets.animations[Assets.gun].getKeyFrame(stateTime-2.5f, false);  
-        if(stateTime > 5 )
-        {
-        	Assets.animations[Assets.gun].setPlayMode(Animation.REVERSED);
-        	 currentFrame = Assets.animations[Assets.gun].getKeyFrame(stateTime-5, false);  
-        	if(stateTime > 5.6f)
-        		currentFrame = Assets.animations[Assets.arms].getKeyFrame(stateTime-5.6f, true);  
-        }
-        }
-        Graphics.draw(batch,currentFrame,100,100,133,127,.5f,0);*/
+		Graphics.draw(batch,frameUpdater.frame,100,100,.5f,0);
+		Graphics.draw(batch,frameUpdater2.frame,100,100,.5f,0);
+		Graphics.draw(batch,frameUpdater3.frame,100,100,.5f,0);
+		Graphics.draw(batch,frameUpdater4.frame,100,200,.5f,0);
+		Graphics.draw(batch,frameUpdater5.frame,100,100,.5f,0);
+		Graphics.draw(batch,frameUpdater6.frame,100,100,.5f,0);
         batch.end();
 	}
 

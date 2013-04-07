@@ -25,7 +25,7 @@ public class Animator
 			return;
 		for(AnimationUnit unit: units)
 		{
-			if(unit.looping || unit.timeEnded > stateTime)
+			if(unit.timeEnded == 0 || unit.timeEnded > stateTime)
 			{
 				if(unit.timeStarted < stateTime)
 				{
@@ -38,7 +38,7 @@ public class Animator
 				}
 			}else
 			{
-				
+				unit.frame = Assets.getTexture(Assets.nullimage);
 				trash.add(unit);
 			}
 		}
