@@ -6,6 +6,7 @@ import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.benjaminlanders.zombie.helper.Animator;
 import com.benjaminlanders.zombie.helper.Assets;
 import com.benjaminlanders.zombie.view.MainRenderer;
 import com.benjaminlanders.zombie.view.Renderer;
@@ -19,6 +20,7 @@ public class MainGame implements ApplicationListener
 	float stateTime;
 	float threshold=2;
 	Sound gun;
+	public Animator animator = new Animator();
 	public MainGame()
 	{
 	
@@ -30,12 +32,13 @@ public class MainGame implements ApplicationListener
 		
 		batch = new SpriteBatch();
 		renderer = new SplashScreen(batch,this,new Texture(Gdx.files.internal("data/libgdx.png")));
-		Assets.getAnimation(Assets.legs);
-		Assets.getAnimation(Assets.arms);
-		Assets.getAnimation(Assets.gun);
+		Assets.getAnimation(Assets.legsAnim);
+		Assets.getAnimation(Assets.armsAnim);
+		Assets.getAnimation(Assets.gunAnim);
         stateTime = 0f;  
         gun = Gdx.audio.newSound(Gdx.files.internal("sounds/gunshot1.wav"));
-        gun.play();
+        //gun.play();
+        
         
 	}
 

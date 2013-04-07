@@ -10,7 +10,7 @@ public class SplashScreen extends Renderer
 {
 	Texture splash;
 	float timeElapsed = 0;
-	public static final float END_TIME=5;
+	public static final float END_TIME=2;
 
 	public SplashScreen(SpriteBatch batch, MainGame reference,Texture splash)
 	{
