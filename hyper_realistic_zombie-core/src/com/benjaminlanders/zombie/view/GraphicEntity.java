@@ -9,6 +9,7 @@ import com.benjaminlanders.zombie.helper.Graphics;
  */
 public class GraphicEntity
 {
+	public int test;
 	protected AnimationUnit[] units;
 	public int[] xCenter, yCenter;
 	
@@ -20,16 +21,18 @@ public class GraphicEntity
 	}
 	public GraphicEntity(AnimationUnit[] units)
 	{
+		this(units.length);
 		this.units = units;
-		xCenter = new int[units.length];
-		yCenter = new int[units.length];
 	}
 	
 	public void render(SpriteBatch batch)
 	{
-		for(AnimationUnit unit:units)
+		AnimationUnit unit;
+		for(int i = 0; i < units.length;i++)
 		{
-			Graphics.draw(batch,unit.frame,.5f,.5f,.1f,0); 
+			unit = units[i];	
+			Graphics.draw(batch,unit.frame,.5f,.5f,xCenter[i]+unit.frame.getRegionWidth()/2,
+					yCenter[i]+unit.frame.getRegionHeight()/2,.1f,0); 
 		}
 	}
 

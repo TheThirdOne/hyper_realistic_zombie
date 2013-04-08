@@ -1,6 +1,5 @@
 package com.benjaminlanders.zombie.view;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.benjaminlanders.zombie.helper.Assets;
 
@@ -17,12 +16,15 @@ public class GraphicCharacter extends GraphicEntity
 		units[3] = new AnimationUnit(0, Animation.NORMAL, fire, 0f, -1f, false);	
 		units[4] = new AnimationUnit(0, Animation.REVERSED, prep, 0f, -1f, false);	
 		animator.addAnimations(units);
+		yCenter[3] = -180;
+		xCenter[3] = -40;
 
 	}
 	
 	public void update(float stateTime)
 	{
 		this.stateTime = stateTime;
+		test = (int) (360 *stateTime);
 	}
 	public void prep()
 	{

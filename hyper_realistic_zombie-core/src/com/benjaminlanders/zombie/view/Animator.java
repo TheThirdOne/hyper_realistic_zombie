@@ -1,8 +1,6 @@
 package com.benjaminlanders.zombie.view;
 
 import java.util.ArrayList;
-import java.util.Collection;
-
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.benjaminlanders.zombie.helper.Assets;
 

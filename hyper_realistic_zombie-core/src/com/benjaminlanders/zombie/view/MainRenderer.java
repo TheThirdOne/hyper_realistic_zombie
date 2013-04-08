@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.benjaminlanders.zombie.MainGame;
 import com.benjaminlanders.zombie.helper.Assets;
-import com.benjaminlanders.zombie.helper.Graphics;
 /**
  * Currently a test bed for graphics
  * @author Benjamin Landers
