@@ -16,6 +16,7 @@ public class MainRenderer extends Renderer
 {
 	TextureRegion currentFrame;
 	float stateTime = 0;
+	int count = 0;
 	AnimationUnit[] frameUpdater = new AnimationUnit[6];
 	GraphicEntity entity;
 	GraphicCharacter character;
@@ -43,9 +44,22 @@ public class MainRenderer extends Renderer
 		batch.begin();
 		if(Gdx.input.justTouched())
 		{
-			character.fire();
-			Gdx.app.log("count", "gun");
-			reference.gun.play();
+			
+			switch(count)
+			{
+			case 1:
+				character.prep();
+				break;
+			case 2:
+				character.fire();
+				reference.gun.play();
+				break;
+			case 3:
+				character.unprep();
+				count = 0;
+				
+			}
+			count++;
 		}
 		reference.animator.render(stateTime);
 		character.update(stateTime);
