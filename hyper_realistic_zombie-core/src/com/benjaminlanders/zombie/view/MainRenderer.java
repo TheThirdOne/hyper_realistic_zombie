@@ -15,7 +15,7 @@ public class MainRenderer extends Renderer
 {
 	TextureRegion currentFrame;
 	float stateTime = 0;
-	int count = 0;
+	int count = 1;
 	AnimationUnit[] frameUpdater = new AnimationUnit[6];
 	GraphicEntity entity;
 	GraphicCharacter character;
@@ -41,6 +41,26 @@ public class MainRenderer extends Renderer
         stateTime += delta;                     
         currentFrame = Assets.animations[Assets.legsAnim].getKeyFrame(stateTime, true); 
 		batch.begin();
+
+		float dY = (-1f*Gdx.input.getY(0)/reference.height+1-character.y), dX = (1f*Gdx.input.getX(0)/reference.width-character.x);
+		float temp = (float) Math.atan(dY/dX);
+		int flip = (dX < 0)?-1:1;
+		int rotate;
+		if(dX < 0)
+		{
+			if(dY <0)
+			{
+				rotate = (int) (-180-180*flip*temp/Math.PI);
+			}else
+			{
+				rotate = (int) (180-180*flip*temp/Math.PI);
+			}
+		}else
+		{
+			rotate = (int) (180*flip*temp/Math.PI);
+		}
+		rotate -= 90;
+		character.rotation = rotate;
 		if(Gdx.input.justTouched())
 		{
 			

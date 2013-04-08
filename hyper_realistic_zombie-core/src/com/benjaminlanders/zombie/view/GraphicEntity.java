@@ -9,7 +9,7 @@ import com.benjaminlanders.zombie.helper.Graphics;
  */
 public class GraphicEntity
 {
-	public int test;
+	public float rotation,x,y;
 	protected AnimationUnit[] units;
 	public int[] xCenter, yCenter;
 	
@@ -31,8 +31,8 @@ public class GraphicEntity
 		for(int i = 0; i < units.length;i++)
 		{
 			unit = units[i];	
-			Graphics.draw(batch,unit.frame,.5f,.5f,xCenter[i]+unit.frame.getRegionWidth()/2,
-					yCenter[i]+unit.frame.getRegionHeight()/2,.1f,0); 
+			Graphics.draw(batch,unit.frame,x,y,xCenter[i]+unit.frame.getRegionWidth()/2,
+					yCenter[i]+unit.frame.getRegionHeight()/2,.1f,rotation); 
 		}
 	}
 

@@ -7,6 +7,14 @@ public class GraphicCharacter extends GraphicEntity
 {
 	float stateTime;
 	boolean prepared = false;
+	/**
+	 * 
+	 * @param animator the animator that will be used to animate the animations
+	 * @param legs the leg asset reference
+	 * @param arms the arms asset reference
+	 * @param prep the prep animation reference
+	 * @param fire the firing animation reference
+	 */
 	public GraphicCharacter(Animator animator,int legs, int arms, int prep, int fire)
 	{
 		super(5);
@@ -18,13 +26,14 @@ public class GraphicCharacter extends GraphicEntity
 		animator.addAnimations(units);
 		yCenter[3] = -180;
 		xCenter[3] = -40;
+		x = .5f;
+		y = .5f;
 
 	}
 	
 	public void update(float stateTime)
 	{
 		this.stateTime = stateTime;
-		test = (int) (360 *stateTime);
 	}
 	public void prep()
 	{
