@@ -13,13 +13,14 @@ import com.benjaminlanders.zombie.MainGame;
 public class Assets
 {
 	public static MainGame application;
-	private static final String[] animationAddress = {"legs","arms","ball","gun","fire"};
+	private static final String[] animationAddress = {"player/legs","player/arms","player/gun","player/fire","ball"};
  	public static Animation[] animations = new Animation[5];
 	public static final int legsAnim = 0;
 	public static final int armsAnim = 1;
-	public static final int ballAnim = 2;
-	public static final int gunAnim =  3;
-	public static final int fireAnim = 4;
+	public static final int gunAnim =  2;
+	public static final int fireAnim = 3;
+	public static final int ballAnim = 4;
+	
 	
 	private static final String[] imageAddress = {"nullimage"};
 	public static TextureRegion[] images = new TextureRegion[1];
